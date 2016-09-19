@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="modelTest">
+  <head>
+    <meta charset="utf-8">
+    <title>Model Test</title>
+  </head>
+  <body>
+
+    <!-- Novalidate disables the browser's default validation. Angular recommends
+         doing this in order to make a more consistent user experience across browsers -->
+    <form novalidate>
+        <label for="first_name">Name</label>
+        <input type="text" id="name" ng-model="user.name" maxlength="50" required>
+
+        <label for="email">eMail</label>
+        <input type="email" id="email" ng-model="user.email" required>
+
+        <label for="date">Date of Birth</label>
+        <input type="date" id="date" ng-model="user.date" minlength="6" required>
+
+        <label for="github">Github page</label>
+        <input type="url" name="github" ng-model="user.github">
+
+    </form>
+
+<div>
+    Welcome {{ user.name }} born on  {{ user.date }}<br>
+    We will send a confirmation eMail to {{ user.email }}<br>
+    Your github is {{ user.github }}
+</div>
+
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/modelTest.js"></script>
+  </body>
+</html>
