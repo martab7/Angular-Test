@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="controllerTest">
+  <head>
+    <meta charset="utf-8">
+    <title>Controller Test</title>
+  </head>
+  <body ng-controller="CartController as cart">
+    <form>
+      <label for="itemName">Item</label>
+      <input type="text" name="itemName" placeholder="enter item name" ng-model="item.itemName">
+
+      <label for="cost">Cost</label>
+      <input type="number" name="cost" placeholder="ex. 10.99" ng-model="item.cost">
+
+      <button name="newItem" ng-click="cart.addItem()">Add To Cart</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <td>Item</td>
+          <td>Quantity</td>
+          <td>Price per</td>
+          <td>Item's Cost</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td ng-repeat="item in items">{{ item.itemName }}</td>
+          <td ng-repeat="item in items"><input type="number" value="1"></td>
+          <td ng-repeat="item in items">{{ item.cost }}</td>
+          <td ng-repeat="item in items">{{ item.itemName }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/controllerTest.js"></script>
+  </body>
+</html>
