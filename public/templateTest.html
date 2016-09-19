@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="templateTest">
   <head>
     <meta charset="utf-8">
     <title>Angular Tests</title>
+    <style media="screen">
+      li:first-child {
+        font-style: italic;
+      }
+      li:last-child {
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
-    Hello world!
+    <ul>
+      <li ng-repeat="number in [0,1,2,3,4,5,6,7,8,9]" ng-if="number % 3 != 0" ng-hide>{{ number }}</li>
+    </ul>
+
+    <ul>
+      <li ng-repeat="letter in ['a','b','c','d','e','f']" ng-if="letter != 'a'" ng-hide>{{ letter }}</li>
+    </ul>
+
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/templateTest.js"></script>
   </body>
 </html>
