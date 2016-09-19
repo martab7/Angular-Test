@@ -4,16 +4,16 @@
   var app = angular.module("controllerTest", []);
 
   app.controller("CartController", function(){
-    var items = new Array();
+    this.items = new Array();
 
-    var newItem = new Object();
-    newItem.quantity = 1;
+    this.newItem = new Object();
+    this.newItem.quantity = 1;
 
-    var addItem = function(){
-      items.push(newItem);
-      
-      newItem = new Object();
-      newItem.quantity = 1;
+    this.addItem = function(){
+      this.items.push(this.newItem);
+
+      this.newItem = new Object();
+      this.newItem.quantity = 1;
     }
 
   })

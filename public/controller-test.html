@@ -7,10 +7,10 @@
   <body ng-controller="CartController as cart">
     <form>
       <label for="itemName">Item</label>
-      <input type="text" name="itemName" placeholder="enter item name" ng-model="item.itemName">
+      <input type="text" name="itemName" placeholder="enter item name" ng-model="cart.newItem.itemName">
 
       <label for="cost">Cost</label>
-      <input type="number" name="cost" placeholder="ex. 10.99" ng-model="item.cost">
+      <input type="number" name="cost" placeholder="ex. 10.99" ng-model="cart.newItem.cost">
 
       <button name="newItem" ng-click="cart.addItem()">Add To Cart</button>
     </form>
@@ -25,11 +25,16 @@
         </tr>
       </thead>
       <tbody>
+        <tr ng-repeat="item in cart.items">
+          <td>{{ item.itemName }}</td>
+          <td><input type="number" name="quantity" value="1" ng-model="item.quantity"></td>
+          <td>${{ item.cost | number:2 }}</td>
+          <td>${{ item.cost * item.quantity | number:2 }}</td>
+        </tr>
         <tr>
-          <td ng-repeat="item in items">{{ item.itemName }}</td>
-          <td ng-repeat="item in items"><input type="number" value="1"></td>
-          <td ng-repeat="item in items">{{ item.cost }}</td>
-          <td ng-repeat="item in items">{{ item.itemName }}</td>
+          <td>
+            
+          </td>
         </tr>
       </tbody>
     </table>
